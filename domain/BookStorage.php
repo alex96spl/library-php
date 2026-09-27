@@ -10,6 +10,7 @@ interface BookStorage //интерфейс
 
     public function delete(Book $book): void;  //удаляет книгу
 
+    public function getAll(): array; // получает все книги
 
 }
 ?>
