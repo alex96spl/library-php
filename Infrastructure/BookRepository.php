@@ -62,5 +62,24 @@ class BookRepository implements BookStorage
         ':id' => $book->get_id_book()
         ]);
     }
+
+    public function getAll(): array
+    {
+        $sql = 'SELECT * FROM `Книги`';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        $books = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $books[] = new Book(
+                $row['id'],
+                $row['name_book'],
+                $row['autor_book'],
+                $row['date_of_publication']
+            );
+        }
+
+        return $books;
+    }
 }
 ?>

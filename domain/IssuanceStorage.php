@@ -15,5 +15,8 @@ interface IssuanceStorage //интерфейс
 
     public function update (Issuance $issuance): void; // сохраняет дату возврата
 
+    public function getAll(): array; //возвращает  список все выдачи
+
+
 }
 ?>

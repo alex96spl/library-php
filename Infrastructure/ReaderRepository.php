@@ -62,5 +62,24 @@ class ReaderRepository implements ReaderStorage
         ':id' => $reader->get_id_reader()
         ]);
     }
+
+       public function getAll(): array
+    {
+        $sql = 'SELECT * FROM `Читатели`';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        $readers = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $readers[] = new Reader(
+                $row['id'],
+                $row['name_reader'],
+                $row['surname_reader'],
+                $row['phone_reader']
+            );
+        }
+
+        return $readers;
+    }
 }
 ?>
