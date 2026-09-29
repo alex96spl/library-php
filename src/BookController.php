@@ -13,14 +13,14 @@ class BookController
         $this->bookRepository = new BookRepository($pdo);
     }
 
-    public function index(array $params): void
+    public function index(array $params): void // получить все книги
     {
         $books = $this->bookRepository->getAll();
 
-        include __DIR__ . '/../views/books/index.html';
+        include __DIR__ . '/../views/books/index.html';  //подключить страницу
     }
 
-    public function show(array $params): void
+    public function show(array $params): void  //получить одну книгу(по айди)
     {
         $id = $params['id'] ?? null;
 
@@ -36,6 +36,6 @@ class BookController
             return;
         }
 
-        include __DIR__ . '/../views/books/show.html';
+        include __DIR__ . '/../views/books/show.html';   //подключить страницу
     }
 }

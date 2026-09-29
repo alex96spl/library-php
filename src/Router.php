@@ -7,11 +7,15 @@ require_once __DIR__ . '/ReaderController.php';
 class Router
 {
     private array $routes = [
-        '/books' => [BookController::class, 'index'],
-        '/books/show' => [BookController::class, 'show'],
+        '/books' => [BookController::class, 'index'],// пусть к странице со списком выдач
+        '/books/show' => [BookController::class, 'show'],// пусть к странице с деталями выдачи
         '/issuances' => [IssuanceController::class, 'index'],
         '/issuances/show' => [IssuanceController::class, 'show'],
         '/readers/create' => [ReaderController::class, 'create'],
+        '/readers' => [ReaderController::class, 'index'],// пусть к странице со списком читателей
+        '/readers/show' => [ReaderController::class, 'show'],  // пусть к странице с одним читателем
+
+
     ];
 
     public function run(): void

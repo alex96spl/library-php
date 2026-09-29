@@ -105,5 +105,26 @@ class IssuanceRepository implements IssuanceStorage
 
     }
 
+    public function getAll(): array    // возвращаем список всех выдач
+    {
+        $sql = 'SELECT * FROM `Выдача`';
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute();
+
+        $issuances = [];
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            $issuances[] = new Issuance(
+                $row['id'],
+                $row['book'],
+                $row['reader'],
+                $row['date_of_issue'],
+                $row['return_period'],
+                $row['return_date']
+            );
+        }
+
+        return $issuances;
+    }
+
      }
 ?>

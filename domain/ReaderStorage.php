@@ -9,5 +9,7 @@ interface ReaderStorage //интерфейс
     public function findByName(string $name_reader): ?Reader; // ищет читателя по имени
 
     public function delete(Reader $reader): void;  //удаляет читателя
+
+    public function getAll(): array; //возвращает  список всех читателей
 }
 ?>
