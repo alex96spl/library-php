@@ -7,11 +7,13 @@ require_once __DIR__ . '/ReaderController.php';
 class Router
 {
     private array $routes = [
-        '/books' => [BookController::class, 'index'],// пусть к странице со списком выдач
-        '/books/show' => [BookController::class, 'show'],// пусть к странице с деталями выдачи
+        '/books' => [BookController::class, 'index'],// пусть к странице со списком книг
+        '/books/show' => [BookController::class, 'show'],// пусть к странице с деталями книги
+        '/books/create' => [BookController::class, 'create'], //путь к странице с добавлением новой книги в базу
         '/issuances' => [IssuanceController::class, 'index'],
         '/issuances/show' => [IssuanceController::class, 'show'],
-        '/readers/create' => [ReaderController::class, 'create'],
+        '/issuances/create' => [IssuanceController::class, 'create'],// пусть к странице с добавлением новой выдачи
+        '/readers/create' => [ReaderController::class, 'create'],  // пусть к странице с добавлением нового читателя
         '/readers' => [ReaderController::class, 'index'],// пусть к странице со списком читателей
         '/readers/show' => [ReaderController::class, 'show'],  // пусть к странице с одним читателем
 

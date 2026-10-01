@@ -38,4 +38,13 @@ class BookController
 
         include __DIR__ . '/../views/books/show.html';   //подключить страницу
     }
+
+    public function create(array $params): void // добавление новой книги
+    {
+        if(isset($params['name']) && isset($params['author']) && isset($params['year'])){  // проверка (пришли-ли данные  с формы)
+            $book = new Book(null,$params['name'],$params['author'],$params['year']);  //создаем новую книгу
+            $this->bookRepository->save($book); //сохраняем в бд
+        }
+        include __DIR__ . '/../views/books/create.html'; //подключить страницу
+    }
 }

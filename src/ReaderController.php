@@ -36,8 +36,12 @@ class ReaderController
 
         include __DIR__ . '/../views/readers/show.html';   //подключить страницу
     }
-    public function create(array $params): void
+    public function create(array $params): void   // добавить нового читателя
     {
-        echo 'Регистрация читателя';
+        if (isset($params['name'])&& isset($params['surname']) && isset($params['phone'])){
+            $reader = new Reader(null, $params['name'], $params['surname'], $params['phone']);
+            $this->readerRepository->save($reader);
+        }
+        include __DIR__ . '/../views/readers/create.html';
     }
 }
