@@ -49,6 +49,7 @@
         }
     </style>
 </head>
+<?php include __DIR__ . '/../partials/header.php'; ?>
 <body>
     <div class="container">
         <h1>Список книг в библиотеке</h1>
@@ -61,6 +62,7 @@
                         <th>Название</th>
                         <th>Автор</th>
                         <th>Год издания</th>
+                        <th>Действие</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,6 +72,7 @@
                             <td><?php echo htmlspecialchars($book->get_name_book()); ?></td>
                             <td><?php echo htmlspecialchars($book->get_autor_book()); ?></td>
                             <td><?php echo htmlspecialchars($book->get_date_of_publication()); ?></td>
+                            <td><a href="/books/delete?id=<?php echo $book->get_id_book(); ?>">Удалить</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

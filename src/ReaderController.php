@@ -1,14 +1,17 @@
 <?php
 require_once __DIR__ . '/../Infrastructure/database.php';
 require_once __DIR__ . '/../Infrastructure/ReaderRepository.php';
+require_once __DIR__ . '/../application/DeleteReader.php';
 
 class ReaderController
 {
     private $readerRepository;
+    private $deleteReader;
     public function __construct()
     {
         $pdo = connectDB();
         $this->readerRepository = new ReaderRepository($pdo);
+        $this->deleteReader = new deleteReader($this->readerRepository);
     }
 
     public function index(array $params): void // получить всех читателей
@@ -44,4 +47,15 @@ class ReaderController
         }
         include __DIR__ . '/../views/readers/create.html';
     }
+
+        public function delete(array $params) :void // удаление читателя
+        {
+            $id = $params['id'] ?? null;
+            if($id !== null){
+                $this->deleteReader->execute($id);
+                header('Location: /readers'); //возврат обратно к списку читателей
+                exit;
+
+            }
+        }
 }

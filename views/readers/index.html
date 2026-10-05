@@ -49,6 +49,7 @@
         }
     </style>
 </head>
+<?php include __DIR__ . '/../partials/header.php'; ?>
 <body>
     <div class="container">
         <h1>Список читателей в библиотеке</h1>
@@ -61,6 +62,7 @@
                         <th>Имя</th>
                         <th>Фамилия</th>
                         <th>Номер телефона</th>
+                        <th>Действие</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,6 +72,7 @@
                             <td><?php echo htmlspecialchars($reader->get_name_reader()); ?></td>
                             <td><?php echo htmlspecialchars($reader->get_surname_reader()); ?></td>
                             <td><?php echo htmlspecialchars($reader->get_phone_reader()); ?></td>
+                            <td><a href="/readers/delete?id=<?php echo $reader->get_id_reader(); ?>">Удалить</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

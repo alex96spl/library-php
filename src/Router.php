@@ -3,6 +3,7 @@
 require_once __DIR__ . '/BookController.php';
 require_once __DIR__ . '/IssuanceController.php';
 require_once __DIR__ . '/ReaderController.php';
+require_once __DIR__ . '/HomeController.php';
 
 class Router
 {
@@ -10,12 +11,15 @@ class Router
         '/books' => [BookController::class, 'index'],// пусть к странице со списком книг
         '/books/show' => [BookController::class, 'show'],// пусть к странице с деталями книги
         '/books/create' => [BookController::class, 'create'], //путь к странице с добавлением новой книги в базу
+        '/books/delete' =>[BookController::class, 'delete'],  // путь к страниц с удалением книги
         '/issuances' => [IssuanceController::class, 'index'],
         '/issuances/show' => [IssuanceController::class, 'show'],
-        '/issuances/create' => [IssuanceController::class, 'create'],// пусть к странице с добавлением новой выдачи
-        '/readers/create' => [ReaderController::class, 'create'],  // пусть к странице с добавлением нового читателя
+        '/issuances/create' => [IssuanceController::class, 'create'],// путь к странице с добавлением новой выдачи
+        '/readers/create' => [ReaderController::class, 'create'],  // путь к странице с добавлением нового читателя
         '/readers' => [ReaderController::class, 'index'],// пусть к странице со списком читателей
         '/readers/show' => [ReaderController::class, 'show'],  // пусть к странице с одним читателем
+        '/readers/delete' => [ReaderController::class, 'delete'], //путь к странице с удалением читателя
+        '/' => [HomeController::class, 'home'], //главная  
 
 
     ];

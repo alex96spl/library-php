@@ -2,15 +2,18 @@
 
 require_once __DIR__ . '/../Infrastructure/database.php';
 require_once __DIR__ . '/../Infrastructure/BookRepository.php';
+require_once __DIR__ . '/../application/DeleteBook.php';
 
 class BookController
 {
     private $bookRepository;
+    private $deleteBook;
 
     public function __construct()
     {
         $pdo = connectDB();
         $this->bookRepository = new BookRepository($pdo);
+        $this->deleteBook = new DeleteBook($this->bookRepository);
     }
 
     public function index(array $params): void // получить все книги
@@ -47,4 +50,15 @@ class BookController
         }
         include __DIR__ . '/../views/books/create.html'; //подключить страницу
     }
+
+    public function delete(array $params) :void // удаление книги
+    {
+        $id = $params['id'] ?? null;
+        if ($id !== null){
+            $this->deleteBook->execute($id);
+            header('Location: /books'); //возврат обратно к списку книг
+            exit;
+        }
+    }
+
 }

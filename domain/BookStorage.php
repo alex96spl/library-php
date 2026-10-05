@@ -6,7 +6,7 @@ interface BookStorage //интерфейс
 
     public function findById(int $id): ?Book; // ищет книгу
 
-    public function findByName(string $name_book): ?Book; // ищет книгу
+    public function findByName(string $name_book): ?Book; // ищет книгу по имени
 
     public function delete(Book $book): void;  //удаляет книгу
 
