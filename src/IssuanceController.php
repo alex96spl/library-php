@@ -1,9 +1,11 @@
 <?php
-require_once __DIR__ . '/../Infrastructure/database.php';
-require_once __DIR__ . '/../Infrastructure/IssuanceRepository.php';
-require_once __DIR__ . '/../Infrastructure/BookRepository.php';
-require_once __DIR__ . '/../Infrastructure/ReaderRepository.php';
-require_once __DIR__ . '/../application/IssueBook.php';
+namespace App\Controller;
+use App\Infrastructure\IssuanceRepository;
+use App\Infrastructure\BookRepository;
+use App\Infrastructure\ReaderRepository;
+use App\Application\IssueBook;
+use App\Infrastructure\Database;
+
 
 class IssuanceController
 {
@@ -15,7 +17,7 @@ class IssuanceController
     
      public function __construct()
     {
-        $pdo = connectDB();
+        $pdo = Database::connect();
         $this->issuanceRepository = new IssuanceRepository($pdo);
         $this->bookRepository = new BookRepository($pdo);
         $this->readerRepository = new ReaderRepository($pdo);

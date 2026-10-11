@@ -1,5 +1,7 @@
 <?php
-require_once __DIR__ . '/../domain/IssuanceStorage.php';
+namespace App\Application;
+use App\Domain\IssuanceStorage;
+
 
 class ReturnBook  // сервисный слой(возврат книги)
 {

@@ -1,5 +1,7 @@
 <?php
-require_once __DIR__ . '/Issuance.php';
+namespace App\Domain;
+use App\Domain\Issuance;
+
 
 interface IssuanceStorage //интерфейс
 {

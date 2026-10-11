@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/../domain/Issuance.php';
-require_once __DIR__ . '/../domain/IssuanceStorage.php';
+namespace App\Infrastructure;
+use App\Domain\Issuance;
+use App\Domain\IssuanceStorage;
+use PDO;
+
 
 class IssuanceRepository implements IssuanceStorage
 {

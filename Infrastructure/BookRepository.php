@@ -1,6 +1,9 @@
 <?php
-require_once __DIR__ . '/../domain/Book.php';
-require_once __DIR__ . '/../domain/BookStorage.php';
+namespace App\Infrastructure;
+use App\Domain\Book;
+use App\Domain\BookStorage;
+use PDO;
+
 
 class BookRepository implements BookStorage
 {

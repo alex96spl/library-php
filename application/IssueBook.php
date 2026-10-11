@@ -1,8 +1,9 @@
 <?php
-require_once __DIR__ . '/../domain/BookStorage.php';
-require_once __DIR__ . '/../domain/ReaderStorage.php';
-require_once __DIR__ . '/../domain/IssuanceStorage.php';
-require_once __DIR__ . '/../domain/Issuance.php';
+namespace App\Application;
+use App\Domain\BookStorage;
+use App\Domain\ReaderStorage;
+use App\Domain\IssuanceStorage;
+use App\Domain\Issuance;
 class IssueBook  // сервисный слой(выдача книги)
 {
    public function __construct(private BookStorage $book,private ReaderStorage $reader,private IssuanceStorage $issuance){}

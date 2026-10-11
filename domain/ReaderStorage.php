@@ -1,4 +1,6 @@
 <?php
+namespace App\Domain;
+use App\Domain\Reader;
 require_once __DIR__ . '/Reader.php';
 interface ReaderStorage //интерфейс
 {

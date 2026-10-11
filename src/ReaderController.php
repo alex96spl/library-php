@@ -1,7 +1,9 @@
 <?php
-require_once __DIR__ . '/../Infrastructure/database.php';
-require_once __DIR__ . '/../Infrastructure/ReaderRepository.php';
-require_once __DIR__ . '/../application/DeleteReader.php';
+namespace App\Controller;
+
+use App\Infrastructure\ReaderRepository;
+use App\Application\DeleteReader;
+use App\Infrastructure\Database;
 
 class ReaderController
 {
@@ -9,7 +11,7 @@ class ReaderController
     private $deleteReader;
     public function __construct()
     {
-        $pdo = connectDB();
+        $pdo = Database::connect();
         $this->readerRepository = new ReaderRepository($pdo);
         $this->deleteReader = new deleteReader($this->readerRepository);
     }

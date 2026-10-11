@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../domain/ReaderStorage.php';
+namespace App\Application;
+use App\Domain\ReaderStorage;
 
 class DeleteReader
 {

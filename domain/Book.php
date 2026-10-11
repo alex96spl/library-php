@@ -1,4 +1,5 @@
 <?php 
+namespace App\Domain;
 class Book       //класс книга
 {
     private $id_book; //айди книги

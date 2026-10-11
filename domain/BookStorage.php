@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/Book.php';
+namespace App\Domain;
+use App\Domain\Book;
 interface BookStorage //интерфейс
 {
     public function save(Book $book): void; // сохраняет книгу

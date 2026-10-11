@@ -1,9 +1,8 @@
 <?php
-
-require_once __DIR__ . '/../Infrastructure/database.php';
-require_once __DIR__ . '/../Infrastructure/BookRepository.php';
-require_once __DIR__ . '/../application/DeleteBook.php';
-
+namespace App\Controller;
+use App\Infrastructure\BookRepository;
+use App\Application\DeleteBook;
+use App\Infrastructure\Database;
 class BookController
 {
     private $bookRepository;
@@ -11,7 +10,7 @@ class BookController
 
     public function __construct()
     {
-        $pdo = connectDB();
+        $pdo = Database::connect();
         $this->bookRepository = new BookRepository($pdo);
         $this->deleteBook = new DeleteBook($this->bookRepository);
     }

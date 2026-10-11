@@ -1,6 +1,8 @@
 <?php
-require_once __DIR__ . '/../domain/Reader.php';
-require_once __DIR__ . '/../domain/ReaderStorage.php';
+namespace App\Infrastructure;
+use App\Domain\Reader;
+use App\Domain\ReaderStorage;
+use PDO;
 
 class ReaderRepository implements ReaderStorage
 {

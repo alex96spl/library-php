@@ -1,4 +1,5 @@
 <?php
+namespace App\Domain;
 /////////ВЫДАЧА/////////////
 class Issuance    //класс выдача          1.
 {

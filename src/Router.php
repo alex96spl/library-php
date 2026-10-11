@@ -1,9 +1,11 @@
 <?php
+namespace app\Routing;
+use App\Controller\BookController;
+use App\Controller\IssuanceController;
+use App\Controller\ReaderController;
+use App\Controller\HomeController;
 
-require_once __DIR__ . '/BookController.php';
-require_once __DIR__ . '/IssuanceController.php';
-require_once __DIR__ . '/ReaderController.php';
-require_once __DIR__ . '/HomeController.php';
+
 
 class Router
 {

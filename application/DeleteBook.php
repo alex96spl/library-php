@@ -1,5 +1,6 @@
 <?php
-require_once __DIR__ . '/../domain/BookStorage.php';
+namespace App\Application;
+use App\Domain\BookStorage;
 
 class DeleteBook // сервисный слой удаление книги
 {
