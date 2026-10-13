@@ -17,9 +17,9 @@ class BookRepository implements BookStorage
                 VALUES(:name_book,:autor_book,:date_of_publication)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            ':name_book' => $book->get_name_book(),
-            ':autor_book' => $book->get_autor_book(),
-            ':date_of_publication' =>$book->get_date_of_publication()
+            ':name_book' => $book->getBookName(),
+            ':autor_book' => $book->getBookAuthor(),
+            ':date_of_publication' =>$book->getPublicationYear()
     ]);
      }
 
@@ -62,7 +62,7 @@ class BookRepository implements BookStorage
         $sql = 'DELETE FROM `Книги` WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-        ':id' => $book->get_id_book()
+        ':id' => $book->getBookId()
         ]);
     }
 

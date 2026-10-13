@@ -5,6 +5,7 @@ use App\Infrastructure\BookRepository;
 use App\Infrastructure\ReaderRepository;
 use App\Application\IssueBook;
 use App\Infrastructure\Database;
+use App\Application\ReturnBook;
 
 
 class IssuanceController
@@ -13,6 +14,7 @@ class IssuanceController
     private $bookRepository;
     private $readerRepository;
     private $issueBook;
+    private $returnBook;
 
     
      public function __construct()
@@ -22,6 +24,7 @@ class IssuanceController
         $this->bookRepository = new BookRepository($pdo);
         $this->readerRepository = new ReaderRepository($pdo);
         $this->issueBook = new IssueBook($this->bookRepository, $this->readerRepository,$this->issuanceRepository);
+        $this->returnBook = new ReturnBook($this->issuanceRepository);
     }
     public function index(array $params): void // получить список выдач 
     {
@@ -54,5 +57,16 @@ class IssuanceController
         }
 
         include __DIR__ . '/../views/issuances/create.html';
+    }
+
+    public function returnBook(array $params): void //вернуть книгу
+    {
+        $bookName = $params['bookName'] ?? null;
+        $readerName = $params['readerName'] ?? null;
+        if ($bookName !== null && $readerName !== null){
+            $this->returnBook->execute($bookName, $readerName);
+            header('Location: /issuances'); //возврат обратно к списку выдач.
+         exit;
+        }
     }
 }

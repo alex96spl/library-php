@@ -1,5 +1,5 @@
 <?php
-namespace app\Routing;
+namespace App\Routing;
 use App\Controller\BookController;
 use App\Controller\IssuanceController;
 use App\Controller\ReaderController;
@@ -17,10 +17,12 @@ class Router
         '/issuances' => [IssuanceController::class, 'index'],
         '/issuances/show' => [IssuanceController::class, 'show'],
         '/issuances/create' => [IssuanceController::class, 'create'],// путь к странице с добавлением новой выдачи
+        '/issuances/returnBook' =>[IssuanceController::class, 'returnBook'], //путь к странице с закрытием выдачи
         '/readers/create' => [ReaderController::class, 'create'],  // путь к странице с добавлением нового читателя
         '/readers' => [ReaderController::class, 'index'],// пусть к странице со списком читателей
         '/readers/show' => [ReaderController::class, 'show'],  // пусть к странице с одним читателем
         '/readers/delete' => [ReaderController::class, 'delete'], //путь к странице с удалением читателя
+
         '/' => [HomeController::class, 'home'], //главная  
 
 

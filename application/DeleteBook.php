@@ -1,6 +1,7 @@
 <?php
 namespace App\Application;
 use App\Domain\BookStorage;
+use InvalidArgumentException;
 
 class DeleteBook // сервисный слой удаление книги
 {

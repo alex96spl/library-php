@@ -17,10 +17,10 @@ class IssuanceRepository implements IssuanceStorage
                 VALUES(:book, :reader, :date_of_issue, :return_period)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            ':book' => $issuance->get_book(),
-            ':reader' => $issuance->get_reader(),
-            ':date_of_issue' =>$issuance->get_date_of_issue(),
-            ':return_period' =>$issuance->get_return_period()
+            ':book' => $issuance->getBook(),
+            ':reader' => $issuance->getReader(),
+            ':date_of_issue' =>$issuance->getDateOfIssue(),
+            ':return_period' =>$issuance->getReturnPeriod()
     ]);
     }
 
@@ -90,7 +90,7 @@ class IssuanceRepository implements IssuanceStorage
         $sql = 'DELETE FROM `Выдача` WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-        ':id' => $issuance->get_id_issuance()
+        ':id' => $issuance->getIssuanceId()
         ]);
     }
 
@@ -100,9 +100,9 @@ class IssuanceRepository implements IssuanceStorage
         WHERE book =:book AND return_date IS NULl AND reader = :reader'; //название книги и пустую дату(NULL) и читателя который держит эту книгу 
          $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            ':return_date' => $issuance->get_return_date(),
-            ':book' => $issuance->get_book(),
-            ':reader' => $issuance->get_reader()
+            ':return_date' => $issuance->getReturnDate(),
+            ':book' => $issuance->getBook(),
+            ':reader' => $issuance->getReader()
            
     ]);
 

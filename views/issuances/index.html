@@ -64,17 +64,19 @@
                         <th>Дата выдачи книиги</th>
                         <th>Cрок возврата</th>
                         <th>Дата возврата</th>
+                        <th>Действия</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($issuances as $issuance): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($issuance->get_id_issuance()); ?></td>
-                            <td><?php echo htmlspecialchars($issuance->get_book()); ?></td>
-                            <td><?php echo htmlspecialchars($issuance->get_reader()); ?></td>
-                            <td><?php echo htmlspecialchars($issuance->get_date_of_issue()); ?></td>
-                            <td><?php echo htmlspecialchars($issuance->get_return_period()); ?></td>
-                            <td><?php echo htmlspecialchars($issuance->get_return_date() ?? 'Не возвращена'); ?></td>
+                            <td><?php echo htmlspecialchars($issuance->getIssuanceId()); ?></td>
+                            <td><?php echo htmlspecialchars($issuance->getBook()); ?></td>
+                            <td><?php echo htmlspecialchars($issuance->getReader()); ?></td>
+                            <td><?php echo htmlspecialchars($issuance->getDateOfIssue()); ?></td>
+                            <td><?php echo htmlspecialchars($issuance->getReturnPeriod()); ?></td>
+                            <td><?php echo htmlspecialchars($issuance->getReturnDate() ?? 'Не возвращена'); ?></td>
+                            <td><a href="/issuances/returnBook?bookName=<?php echo urlencode($issuance->getBook()); ?>&readerName=<?php echo urlencode($issuance->getReader()); ?>">Вернуть</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

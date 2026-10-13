@@ -1,6 +1,7 @@
 <?php
 namespace App\Application;
 use App\Domain\ReaderStorage;
+use InvalidArgumentException;
 
 class DeleteReader
 {

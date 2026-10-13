@@ -4,6 +4,7 @@ namespace App\Controller;
 use App\Infrastructure\ReaderRepository;
 use App\Application\DeleteReader;
 use App\Infrastructure\Database;
+use App\Domain\Reader;
 
 class ReaderController
 {

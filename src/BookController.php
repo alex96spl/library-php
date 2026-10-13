@@ -3,6 +3,7 @@ namespace App\Controller;
 use App\Infrastructure\BookRepository;
 use App\Application\DeleteBook;
 use App\Infrastructure\Database;
+use App\Domain\Book;
 class BookController
 {
     private $bookRepository;
@@ -53,7 +54,7 @@ class BookController
     public function delete(array $params) :void // удаление книги
     {
         $id = $params['id'] ?? null;
-        if ($id !== null){
+        if ($id !== null) {
             $this->deleteBook->execute($id);
             header('Location: /books'); //возврат обратно к списку книг
             exit;

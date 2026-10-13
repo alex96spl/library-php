@@ -4,6 +4,7 @@ use App\Domain\BookStorage;
 use App\Domain\ReaderStorage;
 use App\Domain\IssuanceStorage;
 use App\Domain\Issuance;
+use InvalidArgumentException;
 class IssueBook  // сервисный слой(выдача книги)
 {
    public function __construct(private BookStorage $book,private ReaderStorage $reader,private IssuanceStorage $issuance){}
@@ -15,28 +16,27 @@ class IssueBook  // сервисный слой(выдача книги)
 
     // Проверяем, занята ли сейчас книга
     $activeIssuance = $this->issuance->findBynamebooks(
-        $book->get_name_book()
+        $book->getBookName()
     );
        if ($activeIssuance !== null) {
 
-        echo 'Книгу выдать нельзя. Она находится у читателя: '
-            . $activeIssuance->get_reader();
+        throw new InvalidArgumentException('Книгу выдать нельзя. Она находится у читателя:'. $activeIssuance->getReader());
+
 
     } else {
 
         $issuance = new Issuance(
             null,
-            $book->get_name_book(),
-            $reader->get_name_reader(),
+            $book->getBookName(),
+            $reader->getReaderName(),
             date('Y-m-d'),
             $return_period
         );
 
         $this->issuance->save($issuance);
-            echo 'Книга выдана';
     }
-} else {
-    echo 'Ошибка: книга или читатель не найдены';
+    } else {
+    throw new InvalidArgumentException('Книга или читатель не найдены');
 }
     }
 }

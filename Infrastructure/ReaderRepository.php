@@ -16,9 +16,9 @@ class ReaderRepository implements ReaderStorage
                 VALUES(:name_reader,:surname_reader,:phone_reader)';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-            ':name_reader' => $reader->get_name_reader(),
-            ':surname_reader' => $reader->get_surname_reader(),
-            ':phone_reader' =>$reader->get_phone_reader()
+            ':name_reader' => $reader->getReaderName(),
+            ':surname_reader' => $reader->getReaderSurname(),
+            ':phone_reader' =>$reader->getReaderPhone()
     ]);
      }
 
@@ -61,7 +61,7 @@ class ReaderRepository implements ReaderStorage
         $sql = 'DELETE FROM `Читатели` WHERE id = :id';
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute([
-        ':id' => $reader->get_id_reader()
+        ':id' => $reader->getReaderId()
         ]);
     }
 

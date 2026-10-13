@@ -1,7 +1,7 @@
 <?php
 namespace App\Application;
 use App\Domain\IssuanceStorage;
-
+use InvalidArgumentException;
 
 class ReturnBook  // сервисный слой(возврат книги)
 {
@@ -11,14 +11,14 @@ class ReturnBook  // сервисный слой(возврат книги)
        $issuance = $this->issuance->findByName($bookName, $readerName);
 
         if ($issuance !== null){ //проверка нашли активную выдачу?
-    $issuance->return_book();  //если нашли меняем дату
+    $issuance->returnBook();  //если нашли меняем дату
 
     $this->issuance->update($issuance);  //записываем в бд
 
-    echo 'Книга возвращена: ' . $issuance->get_return_date();
+    $issuance->getReturnDate();
 
 } else {
-    echo 'Активная выдача не найдена';//если не нашли
+    throw new InvalidArgumentException('Активная выдача не найдена');//если не нашли
 }
     }
 }

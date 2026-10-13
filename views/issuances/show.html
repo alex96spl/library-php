@@ -59,27 +59,27 @@
         <div class="book-info">
             <div class="info-row">
                 <div class="info-label">ID:</div>
-                <div class="info-value"><?php echo htmlspecialchars($issuance->get_id_issuance()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($issuance->getIssuanceId()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Название книги:</div>
-                <div class="info-value"><?php echo htmlspecialchars($issuance->get_book()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($issuance->getBook()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Имя читателя:</div>
-                <div class="info-value"><?php echo htmlspecialchars($issuance->get_reader()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($issuance->getReader()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Дата выдачи книиги:</div>
-                <div class="info-value"><?php echo htmlspecialchars($issuance->get_date_of_issue()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($issuance->getDateOfIssue()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Cрок возврата:</div>
-                <div class="info-value"><?php echo htmlspecialchars($issuance->get_return_period()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($issuance->getReturnPeriod()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Дата возврата:</div>
-                <div class="info-value"><?php echo htmlspecialchars($issuance->get_return_date() ?? 'Не возвращена'); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($issuance->getReturnDate() ?? 'Не возвращена'); ?></div>
             </div>
         </div>
 

@@ -1,72 +1,73 @@
 <?php
 namespace App\Domain;
+use InvalidArgumentException;
 /////////ВЫДАЧА/////////////
 class Issuance    //класс выдача          1.
 {
-    private $id_issuance;    //айди выдачи
+    private $idIssuance;    //айди выдачи
     private $book; // название книги
     private $reader; // имя читателя
-    private string $date_of_issue; // дата выдачи книиги
-    private string $return_period;       // срок возврата(дата возврата)
-    private ?string $return_date = null;   //дата возврата книги
-        public function __construct($id_issuance, $book, $reader, $date_of_issue, $return_period, ?string $return_date = null){
+    private string $dateOfIssue; // дата выдачи книиги
+    private string $returnPeriod;       // срок возврата(дата возврата)
+    private ?string $returnDate = null;   //дата возврата книги
+        public function __construct($idIssuance, $book, $reader, $dateOfIssue, $returnPeriod, ?string $returnDate = null){
 
-            if($return_period < $date_of_issue){        // Проверяем если дата возврата меньше даты получения
+            if($returnPeriod < $dateOfIssue){        // Проверяем если дата возврата меньше даты получения
                 throw new InvalidArgumentException('Срок возврата не может быть раньше даты выдачи.');          //throw  выбросить ошибку  new                                                                                                  InvalidArgumentException                                                                                            создать ошибку из-за неправильного аргумента
             } 
-            $this->id_issuance = $id_issuance;  // ид читателя
+            $this->idIssuance = $idIssuance;  // ид читателя
             $this->book = $book;                // название книги
             $this->reader = $reader;           // имя читателя
-            $this->date_of_issue = $date_of_issue;// дата выдачи книиги
-            $this->return_period = $return_period;  // дата возврата(до какого числа нужно вернусть)
-            $this->return_date = $return_date; // дата возрата книиги
+            $this->dateOfIssue = $dateOfIssue;// дата выдачи книиги
+            $this->returnPeriod = $returnPeriod;  // дата возврата(до какого числа нужно вернусть)
+            $this->returnDate = $returnDate; // дата возрата книиги
 
             
     }
 
-    public function get_id_issuance()  // айди
+    public function getIssuanceId()  // айди
     {
-        return $this->id_issuance;
+        return $this->idIssuance;
     }
 
-    public function return_book(): bool   // вернуть книгу
+    public function returnBook(): bool   // вернуть книгу
     {
-        if($this->Has_it_been_returned()){
+        if($this->HasItBeenReturned()){
             return false;
         }
-        $this ->return_date = date('Y-m-d');      //дата возврата год-месяц-день
+        $this ->returnDate = date('Y-m-d');      //дата возврата год-месяц-день
         return true;
     }
 
-    public function Has_it_been_returned(): bool   //возвращена ли книга?
+    public function HasItBeenReturned(): bool   //возвращена ли книга?
     {
-        return $this->return_date !== null;
+        return $this->returnDate !== null;
     }
     
-    public function get_book()              // получить книгу
+    public function getBook()              // получить книгу
     {
 
         return $this->book;
     }
 
-    public function get_reader()       // получить читателя
+    public function getReader()       // получить читателя
     {
         return $this->reader;
     }
  
-    public function get_date_of_issue()     // получить дату выдачи
+    public function getDateOfIssue()     // получить дату выдачи
     {
-        return $this->date_of_issue;
+        return $this->dateOfIssue;
     }
 
-    public function get_return_period()    // получить срок возврата
+    public function getReturnPeriod()    // получить срок возврата
     {
-        return $this->return_period;
+        return $this->returnPeriod;
     }
 
-    public function get_return_date(): ?string     // получить дату возврата
+    public function getReturnDate(): ?string     // получить дату возврата
     {
-        return $this->return_date;
+        return $this->returnDate;
     }
 
 

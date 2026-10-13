@@ -13,19 +13,19 @@ class Book       //класс книга
         $this->autor_book = $autor_book;
         $this->date_of_publication = $date_of_publication;
     }
-    public function get_id_book(){   ////получим индификатор читателя
+    public function getBookId(){   ////получим индификатор книги
         return $this->id_book;
     }
 
-    public function get_name_book(){   // получим Название  книги
+    public function getBookName(){   // получим Название  книги
         return $this->name_book;
     }
 
-    public function get_autor_book(){  // получим автора  книги
+    public function getBookAuthor(){  // получим автора  книги
         return $this->autor_book;
     }
 
-    public function get_date_of_publication(){  // получим год издания  книги
+    public function getPublicationYear(){  // получим год издания  книги
         return $this->date_of_publication;
     }
 } 

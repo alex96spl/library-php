@@ -59,19 +59,19 @@
         <div class="book-info">
             <div class="info-row">
                 <div class="info-label">ID:</div>
-                <div class="info-value"><?php echo htmlspecialchars($book->get_id_book()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($book->getBookId()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Название:</div>
-                <div class="info-value"><?php echo htmlspecialchars($book->get_name_book()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($book->getBookName()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Автор:</div>
-                <div class="info-value"><?php echo htmlspecialchars($book->get_autor_book()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($book->getBookAuthor()); ?></div>
             </div>
             <div class="info-row">
                 <div class="info-label">Год издания:</div>
-                <div class="info-value"><?php echo htmlspecialchars($book->get_date_of_publication()); ?></div>
+                <div class="info-value"><?php echo htmlspecialchars($book->getPublicationYear()); ?></div>
             </div>
         </div>
 

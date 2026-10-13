@@ -68,11 +68,11 @@
                 <tbody>
                     <?php foreach ($readers as $reader): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($reader->get_id_reader()); ?></td>
-                            <td><?php echo htmlspecialchars($reader->get_name_reader()); ?></td>
-                            <td><?php echo htmlspecialchars($reader->get_surname_reader()); ?></td>
-                            <td><?php echo htmlspecialchars($reader->get_phone_reader()); ?></td>
-                            <td><a href="/readers/delete?id=<?php echo $reader->get_id_reader(); ?>">Удалить</a></td>
+                            <td><?php echo htmlspecialchars($reader->getReaderId()); ?></td>
+                            <td><?php echo htmlspecialchars($reader->getReaderName()); ?></td>
+                            <td><?php echo htmlspecialchars($reader->getReaderSurname()); ?></td>
+                            <td><?php echo htmlspecialchars($reader->getReaderPhone()); ?></td>
+                            <td><a href="/readers/delete?id=<?php echo $reader->getReaderId(); ?>">Удалить</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

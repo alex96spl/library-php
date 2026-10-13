@@ -68,11 +68,11 @@
                 <tbody>
                     <?php foreach ($books as $book): ?>
                         <tr>
-                            <td><?php echo htmlspecialchars($book->get_id_book()); ?></td>
-                            <td><?php echo htmlspecialchars($book->get_name_book()); ?></td>
-                            <td><?php echo htmlspecialchars($book->get_autor_book()); ?></td>
-                            <td><?php echo htmlspecialchars($book->get_date_of_publication()); ?></td>
-                            <td><a href="/books/delete?id=<?php echo $book->get_id_book(); ?>">Удалить</a></td>
+                            <td><?php echo htmlspecialchars($book->getBookId()); ?></td>
+                            <td><?php echo htmlspecialchars($book->getBookName()); ?></td>
+                            <td><?php echo htmlspecialchars($book->getBookAuthor()); ?></td>
+                            <td><?php echo htmlspecialchars($book->getPublicationYear()); ?></td>
+                            <td><a href="/books/delete?id=<?php echo $book->getBookId(); ?>">Удалить</a></td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
